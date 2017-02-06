@@ -43,8 +43,11 @@ public class CircleProgressBar extends View {
 	 * 每个块块间的间隙
 	 */
 	private int mSplitSize;
-	
-	
+
+	/**
+	 * 是否开启连续改变
+	 */
+	private boolean isContinuity = true;
 
 	/* 圆弧线宽 */
 	private float circleBorderWidth = TypedValue
@@ -60,7 +63,7 @@ public class CircleProgressBar extends View {
 	/* 绘制圆周的画笔 */
 	private Paint mPaintFirst;
 	/* 绘制圆周白色分割线的画笔 */
-	 private Paint mPaintSecond;
+	private Paint mPaintSecond;
 	/* 绘制文字的画笔 */
 	private Paint textPaint;
 	/* 百分比 */
@@ -73,42 +76,47 @@ public class CircleProgressBar extends View {
 	public CircleProgressBar(Context context, AttributeSet attrs,
 			int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
-		
+
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
 				R.styleable.CircleProgressBar, defStyleAttr, 0);
 		int n = a.getIndexCount();
 		for (int i = 0; i < n; i++) {
 			int attr = a.getIndex(i);
 			switch (attr) {
-			case R.styleable.CustomVolumControlBar_firstCorlor:
+			case R.styleable.CircleProgressBar_firstCorlor:
 				mFirstColor = a.getColor(attr, Color.GREEN);
 
 				break;
-			case R.styleable.CustomVolumControlBar_secondCorlor:
+			case R.styleable.CircleProgressBar_secondCorlor:
 				mSecondColor = a.getColor(attr, Color.CYAN);
 
 				break;
-			case R.styleable.CustomVolumControlBar_circleWidth:
+			case R.styleable.CircleProgressBar_circleWidth:
 				mCircleWidth = a.getDimensionPixelSize(attr, (int) TypedValue
 						.applyDimension(TypedValue.COMPLEX_UNIT_PX, 20,
 								getResources().getDisplayMetrics()));
 
 				break;
-			case R.styleable.CustomVolumControlBar_dotCount:
+			case R.styleable.CircleProgressBar_dotCount:
 				mCount = a.getInt(attr, 20);
 
 				break;
-			case R.styleable.CustomVolumControlBar_splitSize:
+			case R.styleable.CircleProgressBar_splitSize:
 				mSplitSize = a.getInt(attr, 20);
 
 				break;
-				
+
+			case R.styleable.CircleProgressBar_continuity:
+				isContinuity = a.getBoolean(attr, true);
+
+				break;
+
 			}
 
 		}
 
 		init();
-		
+
 	}
 
 	public CircleProgressBar(Context context, AttributeSet attrs) {
@@ -124,8 +132,8 @@ public class CircleProgressBar extends View {
 		mPaintFirst.setStyle(Paint.Style.STROKE);
 		mPaintFirst.setAntiAlias(true);
 		mPaintFirst.setColor(Color.LTGRAY);
-		mPaintFirst.setStrokeWidth(mCircleWidth);// 设置圆环的宽度 
-		
+		mPaintFirst.setStrokeWidth(mCircleWidth);// 设置圆环的宽度
+
 		mPaintSecond = new Paint();
 		mPaintSecond.setStyle(Paint.Style.STROKE);
 		mPaintSecond.setAntiAlias(true);
@@ -193,71 +201,129 @@ public class CircleProgressBar extends View {
 		}
 	}
 
-	
+	private int downY, upY, moveY;
 
-	
-	   private int downY, upY;  
-	 @Override
-	    public boolean onTouchEvent(MotionEvent event) {
-	        switch (event.getAction()) {
-	            case MotionEvent.ACTION_DOWN:
-	                downY = (int) event.getY();
-	                break;
-	            case MotionEvent.ACTION_UP:
-	                upY = (int) event.getY();
-	                if (downY > upY) {
-	                    up();
-	                } else {
-	                    down();
-	                }
-	                break;
-	        }
-	        return true;
-	    }
+	int tempY;
 
-	    private void down() {
-	        mCurrentCount--;
-	        if (mCurrentCount < 0) {
-	            mCurrentCount = 0;
-	        }
-	        changeVolume();
-	    }
+	@Override
+	public boolean onTouchEvent(MotionEvent event) {
+		switch (event.getAction()) {
+		case MotionEvent.ACTION_DOWN:
+			downY = (int) event.getY();
 
-	    private void up() {
-	        mCurrentCount++;
-	        if (mCurrentCount > mCount) {
-	            mCurrentCount = mCount;
-	        }
-	        changeVolume();
-	    }
-	    
-	    /**
-		 * 设置百分比
-		 * 
-		 * @param percent
-		 */
-	    public void setProgress(int progress){
-	        float f = mCount*1.0f/100;
-	        mCurrentCount = (int) (f*progress);
-	        invalidate();
-	    }
+			tempY = downY;
+			break;
+		case MotionEvent.ACTION_UP:
 
-	    private void changeVolume() {
-	        if (listener != null) {
-	            listener.volumeChange(mCurrentCount);
-	        }
-	        postInvalidate();
-	    }
+			if (!isContinuity) {
+				upY = (int) event.getY();
+				if (downY > upY) {
+					int cha = downY - upY;
+					if (cha > 50) {
+						up();
+					}
+				} else {
+					int cha = upY - downY;
+					if (cha > 50) {
+						down();
+					}
+				}
+			}
 
-	    public interface OnVolumeChangeListener {
-	        void volumeChange(int level);
-	    }
+			tempY = 0;
 
-	    private OnVolumeChangeListener listener;
+			break;
 
-	    public void setOnVolumeChangeListener(OnVolumeChangeListener listener) {
-	        this.listener = listener;
-	    }
-	
+		case MotionEvent.ACTION_MOVE:
+
+			if (isContinuity) {// 开启连续变化
+				moveY = (int) event.getY();
+
+				if (moveY > tempY)// 下滑
+				{
+					int cha = moveY - tempY;
+					if (cha > 50) {
+						down(cha / 50);
+						tempY = moveY;
+					}
+
+				} else {
+					int cha = tempY - moveY;
+					if (cha > 50) {
+						up(cha / 50);
+						tempY = moveY;
+					}
+				}
+			}
+			break;
+
+		}
+		return true;
+	}
+
+	/**
+	 * 当前数量+1
+	 */
+	public void up() {
+		up(1);
+	}
+
+	/**
+	 * 当前数量-1
+	 */
+	public void down() {
+		down(1);
+	}
+
+	/**
+	 * 当前数量+1
+	 */
+	public void up(int a) {
+
+		mCurrentCount += a;
+		if (mCurrentCount > mCount) {
+			mCurrentCount = mCount;
+		}
+		changeVolume();
+	}
+
+	/**
+	 * 当前数量-1
+	 */
+	public void down(int a) {
+		mCurrentCount -= a;
+		if (mCurrentCount < 0) {
+			mCurrentCount = 0;
+		}
+		changeVolume();
+	}
+
+	/**
+	 * 设置百分比
+	 * 
+	 * @param percent
+	 */
+	public void setProgress(int progress) {
+		float f = mCount * 1.0f / 100;
+		mCurrentCount = (int) (f * progress);
+		invalidate();
+	}
+
+	private void changeVolume() {
+		if (listener != null) {
+			listener.volumeChange(mCurrentCount);
+		}
+		postInvalidate();
+	}
+
+	public interface OnVolumeChangeListener {
+		void volumeChange(int level);
+	}
+
+	private OnVolumeChangeListener listener;
+
+	public void setOnVolumeChangeListener(OnVolumeChangeListener listener) {
+		this.listener = listener;
+	}
 
 }

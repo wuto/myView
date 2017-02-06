@@ -10,9 +10,9 @@
     <attr name="splitSize" format="integer"/>
     <attr name="spaceCount" format="integer"/>
     <attr name="bg" format="reference"/>
+    <attr name="continuity" format="boolean"/>
     
     <declare-styleable name="CustomVolumControlBar">
-        
         <attr name="firstCorlor"/>
         <attr name="secondCorlor"/>
         <attr name="circleWidth"/>
@@ -20,17 +20,18 @@
         <attr name="splitSize"/>
         <attr name="spaceCount"/>
         <attr name="bg"/>
+        <attr name="continuity"/>
     </declare-styleable>
     
     
     
     <declare-styleable name="CircleProgressBar">
-        
         <attr name="firstCorlor"/>
         <attr name="secondCorlor"/>
         <attr name="circleWidth"/>
         <attr name="dotCount"/>
         <attr name="splitSize"/>
+        <attr name="continuity"/>
     </declare-styleable>
     
     

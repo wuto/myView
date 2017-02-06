@@ -1,6 +1,6 @@
 package com.example.myview;
 
-import com.example.myview.voidView.OnVolumeChangeListener;
+import com.example.myview.PercenterView.OnPercentChangeListener;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -10,7 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.Toast;
 
-public class MainActivity extends Activity implements OnVolumeChangeListener{
+
+public class MainActivity extends Activity implements OnPercentChangeListener{
 	ImagePreviewDialog imagePreviewDialog;
 
 	ImageView iv;
@@ -21,7 +22,7 @@ public class MainActivity extends Activity implements OnVolumeChangeListener{
         setContentView(R.layout.activity_main);
          re=(RelativeLayout) findViewById(R.id.container);
         iv=(ImageView) findViewById(R.id.iv);
-        ((voidView)findViewById(R.id.voidview)).setOnVolumeChangeListener(this);
+        ((PercenterView)findViewById(R.id.voidview)).setOnPercentChangeListener(this);
         
         
         findViewById(R.id.bar).setOnClickListener(new OnClickListener() {
@@ -37,10 +38,11 @@ public class MainActivity extends Activity implements OnVolumeChangeListener{
 		});
 
     }
+    
 	@Override
-	public void volumeChange(int level) {
-		// TODO Auto-generated method stub
+	public void percentChange(int level) {
 		Toast.makeText(this, "level:"+level, 0).show();
+		
 	}
 
 }

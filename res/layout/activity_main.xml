@@ -4,55 +4,47 @@
     xmlns:custom="http://schemas.android.com/apk/res-auto"
     android:id="@+id/container"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-   >
+    android:layout_height="match_parent" >
 
-    
-    <com.example.myview.voidView
-    android:id="@+id/voidview"
+    <com.example.myview.PercenterView
+        android:id="@+id/voidview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:visibility="gone"
+        custom:bg="@drawable/ic_launcher"
+        custom:circleWidth="20dp"
+        custom:continuity="false"
+        custom:dotCount="20"
         custom:firstCorlor="#ff0000"
         custom:secondCorlor="#0000ff"
-        custom:circleWidth="20dp"
-        custom:dotCount="20"
-        custom:splitSize="10"
         custom:spaceCount="6"
-        custom:bg="@drawable/ic_launcher"
-       
-        >
-    </com.example.myview.voidView>
-    
-    
+        custom:splitSize="10" >
+    </com.example.myview.PercenterView>
+
     <com.example.myview.CircleProgressBar
-        
-         android:layout_width="fill_parent"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-         custom:firstCorlor="#ff0000"
-        custom:secondCorlor="#0000ff"
         custom:circleWidth="10dp"
         custom:dotCount="100"
-        custom:splitSize="1"
-        android:visibility="gone"
-        >
+        custom:firstCorlor="#ff0000"
+        custom:secondCorlor="#0000ff"
+        custom:continuity="false"
+        custom:splitSize="1" >
     </com.example.myview.CircleProgressBar>
-    <ImageView 
-      android:id="@+id/bar"
-         android:layout_width="fill_parent"
+
+    <ImageView
+        android:id="@+id/bar"
+        android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:visibility="gone"
         android:src="@drawable/ic_launcher"
-        />
-    
-    <ImageView 
+        android:visibility="gone" />
+
+    <ImageView
         android:id="@+id/iv"
-         android:layout_width="200dp"
+        android:layout_width="200dp"
         android:layout_height="200dp"
         android:layout_centerInParent="true"
-        android:visibility="invisible"
         android:src="@drawable/ic_launcher"
-        />
-    
-    
-    
+        android:visibility="invisible" />
+
 </RelativeLayout>

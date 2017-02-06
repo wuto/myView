@@ -75,6 +75,7 @@ http://blog.csdn.net/qq_28872867/article/details/51915989
         custom:circleWidth="10dp"
         custom:dotCount="100"
         custom:splitSize="1"
+        custom:continuity="false"
         >
     </com.example.myview.CircleProgressBar>
     
@@ -86,6 +87,7 @@ http://blog.csdn.net/qq_28872867/article/details/51915989
     <attr name="circleWidth" format="dimension"/>
     <attr name="dotCount" format="integer"/>
     <attr name="splitSize" format="integer"/>
+    <attr name="continuity" format="boolean"/>
     
     <declare-styleable name="CircleProgressBar">
         
@@ -94,6 +96,7 @@ http://blog.csdn.net/qq_28872867/article/details/51915989
         <attr name="circleWidth"/>
         <attr name="dotCount"/>
         <attr name="splitSize"/>
+        <attr name="continuity"/>
     </declare-styleable>
     
     
@@ -101,17 +104,17 @@ http://blog.csdn.net/qq_28872867/article/details/51915989
     
     
     
-voidView 
+PercenterView 
 音量控制（下方有空白）
 
 http://blog.csdn.net/lmj623565791/article/details/24529807
 
 每段圆弧改成圆角的，在下方增加间距
     
-   1. voidView
+   1. PercenterView
    2. 
    在布局中使用
-   <com.example.myview.voidView
+   <com.example.myview.PercenterView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         custom:firstCorlor="#ff0000"
@@ -121,9 +124,9 @@ http://blog.csdn.net/lmj623565791/article/details/24529807
         custom:splitSize="10"
         custom:spaceCount="6"
         custom:bg="@drawable/ic_launcher"
-        android:visibility="gone"
+       custom:continuity="false"
         >
-    </com.example.myview.voidView>
+    </com.example.myview.PercenterView>
    
     	在attr.xml中添加：
     <attr name="firstCorlor" format="color"/>
@@ -133,6 +136,7 @@ http://blog.csdn.net/lmj623565791/article/details/24529807
     <attr name="splitSize" format="integer"/>
     <attr name="spaceCount" format="integer"/>
     <attr name="bg" format="reference"/>
+    <attr name="continuity" format="boolean"/>
     
     <declare-styleable name="CustomVolumControlBar">
         
@@ -143,6 +147,7 @@ http://blog.csdn.net/lmj623565791/article/details/24529807
         <attr name="splitSize"/>
         <attr name="spaceCount"/>
         <attr name="bg"/>
+        <attr name="continuity"/>
     </declare-styleable>
     
     
