@@ -503,6 +503,6 @@ public class ImagePreviewDialog extends Dialog implements View.OnClickListener{
 
     @Override  
     public void onClick(View v) {  
-        backAnimation();  
+        backAnimation();   
     }  
 }  
