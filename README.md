@@ -128,7 +128,7 @@ http://blog.csdn.net/lmj623565791/article/details/24529807
         >
     </com.example.myview.PercenterView>
    
-    	在attr.xml中添加：
+    在attr.xml中添加：
     <attr name="firstCorlor" format="color"/>
     <attr name="secondCorlor" format="color"/>
     <attr name="circleWidth" format="dimension"/>
