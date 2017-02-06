@@ -17,7 +17,7 @@ import android.view.View;
 public class PercenterView extends View {
 
 	/**
-	 * 第一圈的颜色
+	 * 第一圈的颜色 
 	 */
 	private int mFirstColor;
 
