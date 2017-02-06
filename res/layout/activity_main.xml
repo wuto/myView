@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:custom="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+   >
+
+    <com.example.myview.voidView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        custom:firstCorlor="#ff0000"
+        custom:secondCorlor="#0000ff"
+        custom:circleWidth="20dp"
+        custom:dotCount="20"
+        custom:splitSize="10"
+        custom:spaceCount="6"
+        custom:bg="@drawable/ic_launcher"
+        android:visibility="gone"
+        >
+    </com.example.myview.voidView>
+    
+    
+    <com.example.myview.CircleProgressBar
+        
+         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+         custom:firstCorlor="#ff0000"
+        custom:secondCorlor="#0000ff"
+        custom:circleWidth="10dp"
+        custom:dotCount="100"
+        custom:splitSize="1"
+        android:visibility="gone"
+        >
+    </com.example.myview.CircleProgressBar>
+    <ImageView 
+      android:id="@+id/bar"
+         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:src="@drawable/ic_launcher"
+        />
+    
+    <ImageView 
+        android:id="@+id/iv"
+         android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerInParent="true"
+        android:visibility="invisible"
+        android:src="@drawable/ic_launcher"
+        />
+    
+    
+    
+</RelativeLayout>

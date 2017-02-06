@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    
+    
+    <attr name="firstCorlor" format="color"/>
+    <attr name="secondCorlor" format="color"/>
+    <attr name="circleWidth" format="dimension"/>
+    <attr name="dotCount" format="integer"/>
+    <attr name="splitSize" format="integer"/>
+    <attr name="spaceCount" format="integer"/>
+    <attr name="bg" format="reference"/>
+    
+    <declare-styleable name="CustomVolumControlBar">
+        
+        <attr name="firstCorlor"/>
+        <attr name="secondCorlor"/>
+        <attr name="circleWidth"/>
+        <attr name="dotCount"/>
+        <attr name="splitSize"/>
+        <attr name="spaceCount"/>
+        <attr name="bg"/>
+    </declare-styleable>
+    
+    
+    
+    <declare-styleable name="CircleProgressBar">
+        
+        <attr name="firstCorlor"/>
+        <attr name="secondCorlor"/>
+        <attr name="circleWidth"/>
+        <attr name="dotCount"/>
+        <attr name="splitSize"/>
+    </declare-styleable>
+    
+    
+    
+    
+</resources>
