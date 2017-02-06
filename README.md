@@ -1,4 +1,4 @@
-ImagePreviewDialog
+##ImagePreviewDialog
 
 ¸ßË¹Ä£ºı¼ÓÍ¼Æ¬Õ¹Ê¾£¨·Âipad qqÍ¼Æ¬µã»÷Õ¹Ê¾£© 
 http://blog.csdn.net/mcy456/article/details/51339149
@@ -58,7 +58,7 @@ ImagePreviewDialog¹¹Ôì·½·¨ÖĞ½«mParentView¸³Öµ´úÂë×¢ÊÍ£¬×Ô¼ºĞ´·½·¨´«Èë¶ÔÓ¦µÄView£
 
 
 
-CircleProgressBar
+##CircleProgressBar
 
 ×Ô¶¨ÒåÔ²ĞÎprogressbar ¼Ó ÒôÁ¿¿ØÖÆ×Ô¶¨Òåview 
 
@@ -104,7 +104,7 @@ http://blog.csdn.net/qq_28872867/article/details/51915989
     
     
     
-PercenterView 
+##PercenterView 
 ÒôÁ¿¿ØÖÆ£¨ÏÂ·½ÓĞ¿Õ°×£©
 
 http://blog.csdn.net/lmj623565791/article/details/24529807
