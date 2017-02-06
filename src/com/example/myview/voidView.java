@@ -1,5 +1,7 @@
 package com.example.myview;
 
+import com.example.myview.CircleProgressBar.OnVolumeChangeListener;
+
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
@@ -184,23 +186,7 @@ public class voidView extends View{
 		
 	}
 
-    /** 
-     * 当前数量+1 
-     */  
-    public void up()  
-    {  
-        mCurrentCount++;  
-        postInvalidate();  
-    }  
-  
-    /** 
-     * 当前数量-1 
-     */  
-    public void down()  
-    {  
-        mCurrentCount--;  
-        postInvalidate();  
-    }  
+    
   
     private int xDown, xUp;  
   
@@ -216,10 +202,10 @@ public class voidView extends View{
   
         case MotionEvent.ACTION_UP:  
             xUp = (int) event.getY();  
-            if (xUp > xDown&&mCurrentCount > 0)// 下滑  
+            if (xUp > xDown)// 下滑  
             {  
                 down();  
-            } else if (xUp < xDown && mCurrentCount < mCount-spaceCount)  
+            } else 
             {  
                 up();  
             }  
@@ -228,5 +214,61 @@ public class voidView extends View{
   
         return true;  
     }  
+    /** 
+     * 当前数量+1 
+     */  
+    public void up()  
+    {  
+        mCurrentCount++;  
+        if (mCurrentCount > mCount-spaceCount) {
+            mCurrentCount = mCount-spaceCount;
+        }
+        changeVolume();  
+    }  
+  
+    /**
+	 * 设置百分比
+	 * 
+	 * @param percent
+	 */
+    public void setProgress(int progress){
+        float f = mCount*1.0f/100;
+        mCurrentCount = (int) (f*progress);
+        invalidate();
+    }
+    
+    /** 
+     * 当前数量-1 
+     */  
+    public void down()  
+    {  
+        mCurrentCount--;  
+        if (mCurrentCount < 0) {
+            mCurrentCount = 0;
+        }
+        changeVolume();  
+    }  
+    
+    
+    
+    private void changeVolume() {
+        if (listener != null) {
+            listener.volumeChange(mCurrentCount);
+        }
+        postInvalidate();
+    }
+
+    public interface OnVolumeChangeListener {
+        void volumeChange(int level);
+    }
+
+    private OnVolumeChangeListener listener;
+
+    public void setOnVolumeChangeListener(OnVolumeChangeListener listener) {
+        this.listener = listener;
+    }
+    
+    
+    
 	
 }

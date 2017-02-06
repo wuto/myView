@@ -74,7 +74,6 @@ public class CircleProgressBar extends View {
 			int defStyleAttr) {
 		super(context, attrs, defStyleAttr);
 		
-
 		TypedArray a = context.getTheme().obtainStyledAttributes(attrs,
 				R.styleable.CircleProgressBar, defStyleAttr, 0);
 		int n = a.getIndexCount();
@@ -132,10 +131,6 @@ public class CircleProgressBar extends View {
 		mPaintSecond.setAntiAlias(true);
 		mPaintSecond.setColor(Color.LTGRAY);
 		mPaintSecond.setStrokeWidth(mCircleWidth);
-
-		// linePaint = new Paint();
-		// linePaint.setColor(Color.WHITE);
-		// linePaint.setStrokeWidth(5);
 
 		textPaint = new Paint();
 		textPaint.setAntiAlias(true);

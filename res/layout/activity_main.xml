@@ -7,7 +7,9 @@
     android:layout_height="match_parent"
    >
 
+    
     <com.example.myview.voidView
+    android:id="@+id/voidview"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         custom:firstCorlor="#ff0000"
@@ -17,7 +19,7 @@
         custom:splitSize="10"
         custom:spaceCount="6"
         custom:bg="@drawable/ic_launcher"
-        android:visibility="gone"
+       
         >
     </com.example.myview.voidView>
     
@@ -38,6 +40,7 @@
       android:id="@+id/bar"
          android:layout_width="fill_parent"
         android:layout_height="fill_parent"
+        android:visibility="gone"
         android:src="@drawable/ic_launcher"
         />
     

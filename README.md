@@ -3,6 +3,47 @@ ImagePreviewDialog
 ¸ßË¹Ä£ºı¼ÓÍ¼Æ¬Õ¹Ê¾£¨·Âipad qqÍ¼Æ¬µã»÷Õ¹Ê¾£© 
 http://blog.csdn.net/mcy456/article/details/51339149
 
+
+1. ImagePreviewDialog
+2. È»ºó²¼¾Ö´úÂë£º
+  dialog_gauss_bg_pic.xml:
+    <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"  
+        android:layout_width="match_parent"  
+        android:layout_height="match_parent"  
+        >  
+        <ImageView  
+            android:id="@+id/iv_gauss"  
+            android:layout_width="match_parent"  
+            android:layout_height="match_parent"/>  
+        <ImageView  
+            android:id="@+id/iv_shadow"  
+            android:layout_width="match_parent"  
+            android:layout_height="match_parent"  
+            android:background="@color/transparent_gray"/>  
+      
+    </FrameLayout>  
+    ÒÔ¼°styleÉèÖÃ
+        <style name="GaussDialog">  
+            <item name="android:windowBackground">@color/transparent</item>  
+            <item name="android:windowNoTitle">true</item>  
+            <item name="android:windowFullscreen">false</item>  
+            <item name="android:windowIsTranslucent">true</item>  
+            <item name="android:backgroundDimEnabled">false</item>  
+            <item name="android:background">#00000000</item>  
+        </style>  
+        É«ÖµÉèÖÃ£º
+        <color name="transparent_gray">#88000000</color>
+        Ê¹ÓÃ·½·¨ºÜ¼òµ¥£¬Ö»ÒªÁ½ĞĞ´úÂë£º
+    
+	imagePreviewDialog = new ImagePreviewDialog(this);
+	[imagePreviewDialog = new ImagePreviewDialog(this , view);]
+			view´«ÈëÕû¸öÒ³ÃæµÄ²¼¾Ö
+	
+	imagePreviewDialog.setTargetView(iv).show();
+			iv´«ÈëÒªÏÔÊ¾µÄimageView
+	
+	(µÚ¶şĞĞ´úÂë£¬ĞèÒªÔÚÄ¿±êViewÏÔÊ¾ºó½øĞĞµ÷ÓÃ£¬·ñÔò»ñµÃµÄgetmeasuredwidthÒÔ¼°¸ß¶È»áÎª0£©
+
 1. gaussBg = convertViewToBitmap(mParentView,mParentView.getWidth(),mParentView.getHeight()); ±¨¿ÕÖ¸Õë:
 
 
@@ -13,3 +54,97 @@ ImagePreviewDialog¹¹Ôì·½·¨ÖĞ½«mParentView¸³Öµ´úÂë×¢ÊÍ£¬×Ô¼ºĞ´·½·¨´«Èë¶ÔÓ¦µÄView£
 2. IllegalArgumentExceptionÒì³£
 
 »ñÈ¡µÄ¸ßºÍ¿íÎªÁã£¬´«ÈëµÄTargetViewÓ¦¸ÃÊÇÒÑ¾­ÏÔÊ¾µÄView
+
+
+
+
+CircleProgressBar
+
+×Ô¶¨ÒåÔ²ĞÎprogressbar ¼Ó ÒôÁ¿¿ØÖÆ×Ô¶¨Òåview 
+
+http://blog.csdn.net/qq_28872867/article/details/51915989
+
+1. CircleProgressBar
+2. 
+ÔÚ²¼¾ÖÖĞÊ¹ÓÃ
+<com.example.myview.CircleProgressBar
+         android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        custom:firstCorlor="#ff0000"
+        custom:secondCorlor="#0000ff"
+        custom:circleWidth="10dp"
+        custom:dotCount="100"
+        custom:splitSize="1"
+        >
+    </com.example.myview.CircleProgressBar>
+    
+    
+    
+    ÔÚattr.xmlÖĞÌí¼Ó£º
+    <attr name="firstCorlor" format="color"/>
+    <attr name="secondCorlor" format="color"/>
+    <attr name="circleWidth" format="dimension"/>
+    <attr name="dotCount" format="integer"/>
+    <attr name="splitSize" format="integer"/>
+    
+    <declare-styleable name="CircleProgressBar">
+        
+        <attr name="firstCorlor"/>
+        <attr name="secondCorlor"/>
+        <attr name="circleWidth"/>
+        <attr name="dotCount"/>
+        <attr name="splitSize"/>
+    </declare-styleable>
+    
+    
+ ÔÚactivityÖĞÊµÏÖOnVolumeChangeListener½Ó¿Ú¼àÌı½ø¶ÈµÄ¸Ä±ä
+    
+    
+    
+voidView 
+ÒôÁ¿¿ØÖÆ£¨ÏÂ·½ÓĞ¿Õ°×£©
+
+http://blog.csdn.net/lmj623565791/article/details/24529807
+
+Ã¿¶ÎÔ²»¡¸Ä³ÉÔ²½ÇµÄ£¬ÔÚÏÂ·½Ôö¼Ó¼ä¾à
+    
+   1. voidView
+   2. 
+   ÔÚ²¼¾ÖÖĞÊ¹ÓÃ
+   <com.example.myview.voidView
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        custom:firstCorlor="#ff0000"
+        custom:secondCorlor="#0000ff"
+        custom:circleWidth="20dp"
+        custom:dotCount="20"
+        custom:splitSize="10"
+        custom:spaceCount="6"
+        custom:bg="@drawable/ic_launcher"
+        android:visibility="gone"
+        >
+    </com.example.myview.voidView>
+   
+    	ÔÚattr.xmlÖĞÌí¼Ó£º
+    <attr name="firstCorlor" format="color"/>
+    <attr name="secondCorlor" format="color"/>
+    <attr name="circleWidth" format="dimension"/>
+    <attr name="dotCount" format="integer"/>
+    <attr name="splitSize" format="integer"/>
+    <attr name="spaceCount" format="integer"/>
+    <attr name="bg" format="reference"/>
+    
+    <declare-styleable name="CustomVolumControlBar">
+        
+        <attr name="firstCorlor"/>
+        <attr name="secondCorlor"/>
+        <attr name="circleWidth"/>
+        <attr name="dotCount"/>
+        <attr name="splitSize"/>
+        <attr name="spaceCount"/>
+        <attr name="bg"/>
+    </declare-styleable>
+    
+    
+        
+ ÔÚactivityÖĞÊµÏÖOnVolumeChangeListener½Ó¿Ú¼àÌı½ø¶ÈµÄ¸Ä±ä
