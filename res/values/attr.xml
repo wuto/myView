@@ -1,38 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    
-    
-    <attr name="firstCorlor" format="color"/>
-    <attr name="secondCorlor" format="color"/>
-    <attr name="circleWidth" format="dimension"/>
-    <attr name="dotCount" format="integer"/>
-    <attr name="splitSize" format="integer"/>
-    <attr name="spaceCount" format="integer"/>
-    <attr name="bg" format="reference"/>
-    <attr name="continuity" format="boolean"/>
-    
+    <attr name="firstCorlor" format="color" />
+    <attr name="secondCorlor" format="color" />
+    <attr name="circleWidth" format="dimension" />
+    <attr name="dotCount" format="integer" />
+    <attr name="splitSize" format="integer" />
+    <attr name="spaceCount" format="integer" />
+    <attr name="bg" format="reference" />
+    <attr name="continuity" format="boolean" />
+    <attr name="currentCount" format="integer" />
+
+    <!--
+    PercenterView 音量控制（下方有空白）
+    firstCorlor  圈的背景颜色
+    secondCorlor  选中的圈的颜色
+    circleWidth  圈的宽度
+    dotCount    个数
+    splitSize  每个块块间的间隙
+    spaceCount  下方空白的个数
+    bg         中间的图片
+    continuity   是否连续增加减小
+    currentCount  当前进度
+    -->
     <declare-styleable name="CustomVolumControlBar">
-        <attr name="firstCorlor"/>
-        <attr name="secondCorlor"/>
-        <attr name="circleWidth"/>
-        <attr name="dotCount"/>
-        <attr name="splitSize"/>
-        <attr name="spaceCount"/>
-        <attr name="bg"/>
-        <attr name="continuity"/>
+        <attr name="firstCorlor" />
+        <attr name="secondCorlor" />
+        <attr name="circleWidth" />
+        <attr name="dotCount" />
+        <attr name="splitSize" />
+        <attr name="spaceCount" />
+        <attr name="bg" />
+        <attr name="continuity" />
+        <attr name="currentCount" />
     </declare-styleable>
-    
-    
-    
+
+    <!-- CircleProgressBar 自定义圆形progressbar 加 音量控制自定义view -->
     <declare-styleable name="CircleProgressBar">
-        <attr name="firstCorlor"/>
-        <attr name="secondCorlor"/>
-        <attr name="circleWidth"/>
-        <attr name="dotCount"/>
-        <attr name="splitSize"/>
-        <attr name="continuity"/>
+        <attr name="firstCorlor" />
+        <attr name="secondCorlor" />
+        <attr name="circleWidth" />
+        <attr name="dotCount" />
+        <attr name="splitSize" />
+        <attr name="continuity" />
+         <attr name="currentCount" />
     </declare-styleable>
+    
     
     
     

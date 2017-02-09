@@ -1,4 +1,4 @@
-package com.example.myview.customview;
+package com.example.myview.slidecutlistview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -17,7 +17,7 @@ import android.widget.Scroller;
  * @author xiaanming
  * 
  */
-public class SlideCutListView extends ListView {
+public class SlideCutListView1 extends ListView {
 	/**
 	 * 当前滑动的ListView　position
 	 */
@@ -69,15 +69,15 @@ public class SlideCutListView extends ListView {
 		RIGHT, LEFT;
 	}
 
-	public SlideCutListView(Context context) {
+	public SlideCutListView1(Context context) {
 		this(context, null);
 	}
 
-	public SlideCutListView(Context context, AttributeSet attrs) {
+	public SlideCutListView1(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 
-	public SlideCutListView(Context context, AttributeSet attrs, int defStyle) {
+	public SlideCutListView1(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		screenWidth = ((WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay()
@@ -124,8 +124,8 @@ public class SlideCutListView extends ListView {
 		}
 		case MotionEvent.ACTION_MOVE: {
 			if (Math.abs(getScrollVelocity()) > SNAP_VELOCITY
-					|| (Math.abs(event.getX() - downX) > mTouchSlop && Math
-							.abs(event.getY() - downY) < mTouchSlop)) {
+					|| (downX - event.getX() > mTouchSlop && Math.abs(event
+							.getY() - downY) < mTouchSlop)) {
 				isSlide = true;
 
 			}
@@ -208,17 +208,17 @@ public class SlideCutListView extends ListView {
 
 				return true; // 拖动的时候ListView不滚动
 			case MotionEvent.ACTION_UP:
-				int velocityX = getScrollVelocity();
-				if (velocityX > SNAP_VELOCITY) {
-					scrollRight();
-				} else if (velocityX < -SNAP_VELOCITY) {
-					scrollLeft();
-				} else {
-					scrollByDistanceX();
-				}
-
+//				int velocityX = getScrollVelocity();
+//				if (velocityX > SNAP_VELOCITY) {
+//					scrollRight();
+//				} else if (velocityX < -SNAP_VELOCITY) {
+//					scrollLeft();
+//				} else {
+//					scrollByDistanceX();
+//				}
+//
 				recycleVelocityTracker();
-				// 手指离开的时候就不响应左右滚动
+//				// 手指离开的时候就不响应左右滚动
 				isSlide = false;
 				break;
 			}

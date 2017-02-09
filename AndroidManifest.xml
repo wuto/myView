@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.myview"
-    android:versionCode="1"
     android:installLocation="preferExternal"
+    android:versionCode="1"
     android:versionName="1.0" >
 
     <uses-sdk
@@ -15,7 +15,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="com.example.myview.customview.MainActivity"
+            android:name="com.example.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -23,6 +23,62 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!-- 自定义View -->
+        <activity
+            android:name="com.example.myview.Activity_View"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 自定义ViewGroup -->
+        <activity
+            android:name="com.example.myviewgroup.Activity_Group"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 高斯模糊加图片展示 -->
+        <activity
+            android:name="com.example.myview.imagepreviewdialog.Activity_ImagePreview"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+
+        <!-- 自定义圆形progressbar 加控制自定义view -->
+        <activity
+            android:name="com.example.myview.circleprogressbar.Activity_Circle"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 音量控制（下方有空白） -->
+        <activity
+            android:name="com.example.myview.percenterview.Activity_Percenter"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 左划右划-打开menu删除-打开 -->
+        <activity
+            android:name="com.example.myview.swipemenulistview.Activity_Swipemenu"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name="com.example.myview.swipemenulistview.SimpleActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <activity
+            android:name="com.example.myview.swipemenulistview.DifferentMenuActivity"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        <!-- 左划 右划 直接删除 -->
+        <activity
+            android:name="com.example.myview.slidecutlistview.Activity_SlidCutList"
+            android:theme="@android:style/Theme.Light.NoTitleBar" >
+        </activity>
+        
+        
+        <!-- 自定义ViewGroup  Demo -->
+        <activity
+            android:name="com.example.myviewgroup.groupdemo1.Activity_GroupDemo1"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 自定义ViewGroup  拖动view -->
+        <activity
+            android:name="com.example.myviewgroup.vdhlayout.Activity_VDHLayout"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <!-- 自定义ViewGroup  拖动view -->
+        <activity
+            android:name="com.example.myviewgroup.vdhlayout.Activity_VDHLayout2"
+            android:theme="@android:style/Theme.Light.NoTitleBar" />
+        <activity
+            android:name="com.example.android.drawerlayout.Activity_DrawerLayout"
+            />
     </application>
 
 </manifest>

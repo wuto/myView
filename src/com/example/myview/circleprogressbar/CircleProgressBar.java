@@ -1,4 +1,7 @@
-package com.example.myview;
+package com.example.myview.circleprogressbar;
+
+import com.example.myview.R;
+import com.example.myview.R.styleable;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -34,7 +37,7 @@ public class CircleProgressBar extends View {
 	/**
 	 * 当前进度
 	 */
-	private int mCurrentCount = 3;
+	private int mCurrentCount = 1;
 	/**
 	 * 个数
 	 */
@@ -110,7 +113,10 @@ public class CircleProgressBar extends View {
 				isContinuity = a.getBoolean(attr, true);
 
 				break;
+			case R.styleable.CustomVolumControlBar_currentCount:
+				mCurrentCount = a.getInt(attr, 0);
 
+				break;
 			}
 
 		}

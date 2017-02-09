@@ -1,4 +1,4 @@
-package com.example.myview.customview;
+package com.example.myview.slidecutlistview;
 
 import android.content.Context;
 import android.util.AttributeSet;
@@ -17,7 +17,7 @@ import android.widget.Scroller;
  * @author xiaanming
  * 
  */
-public class SlideCutList2View extends ListView {
+public class SlideCutListView extends ListView {
 	/**
 	 * 当前滑动的ListView　position
 	 */
@@ -69,15 +69,15 @@ public class SlideCutList2View extends ListView {
 		RIGHT, LEFT;
 	}
 
-	public SlideCutList2View(Context context) {
+	public SlideCutListView(Context context) {
 		this(context, null);
 	}
 
-	public SlideCutList2View(Context context, AttributeSet attrs) {
+	public SlideCutListView(Context context, AttributeSet attrs) {
 		this(context, attrs, 0);
 	}
 
-	public SlideCutList2View(Context context, AttributeSet attrs, int defStyle) {
+	public SlideCutListView(Context context, AttributeSet attrs, int defStyle) {
 		super(context, attrs, defStyle);
 		screenWidth = ((WindowManager) context
 				.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay()

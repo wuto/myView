@@ -1,4 +1,4 @@
-package com.example.myview.customview;
+package com.example.myview.slidecutlistview;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +12,10 @@ import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
 import com.example.myview.R;
-import com.example.myview.customview.SlideCutListView.RemoveDirection;
-import com.example.myview.customview.SlideCutListView.RemoveListener;
+import com.example.myview.slidecutlistview.SlideCutListView.RemoveDirection;
+import com.example.myview.slidecutlistview.SlideCutListView.RemoveListener;
 
-public class MainActivity extends Activity implements RemoveListener {
+public class Activity_SlidCutList extends Activity implements RemoveListener {
 	private SlideCutListView slideCutListView;
 	private ArrayAdapter<String> adapter;
 	private List<String> dataSourceList = new ArrayList<String>();
@@ -23,7 +23,7 @@ public class MainActivity extends Activity implements RemoveListener {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.activity_main2);
+		setContentView(R.layout.activity_slidcutlist);
 		init();
 	}
 
@@ -44,7 +44,7 @@ public class MainActivity extends Activity implements RemoveListener {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				Toast.makeText(MainActivity.this, dataSourceList.get(position),
+				Toast.makeText(Activity_SlidCutList.this, dataSourceList.get(position),
 						Toast.LENGTH_SHORT).show();
 			}
 		});

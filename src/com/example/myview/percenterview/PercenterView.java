@@ -1,4 +1,7 @@
-package com.example.myview;
+package com.example.myview.percenterview;
+
+import com.example.myview.R;
+import com.example.myview.R.styleable;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -17,7 +20,7 @@ import android.view.View;
 public class PercenterView extends View {
 
 	/**
-	 * 第一圈的颜色 
+	 * 第一圈的颜色
 	 */
 	private int mFirstColor;
 
@@ -44,12 +47,12 @@ public class PercenterView extends View {
 	/**
 	 * 当前进度
 	 */
-	private int mCurrentCount = 3;
+	private int mCurrentCount = 0;
 	/**
 	 * 空白格
 	 */
 	private int spaceCount = 4;
-	
+
 	/**
 	 * 是否开启连续改变
 	 */
@@ -110,8 +113,13 @@ public class PercenterView extends View {
 				break;
 			case R.styleable.CustomVolumControlBar_continuity:
 				isContinuity = a.getBoolean(attr, true);
-				
+
 				break;
+			case R.styleable.CustomVolumControlBar_currentCount:
+				mCurrentCount = a.getInt(attr, 0);
+
+				break;
+				
 			}
 		}
 		a.recycle();

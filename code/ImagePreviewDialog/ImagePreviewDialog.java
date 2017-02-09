@@ -1,4 +1,9 @@
-package com.example.myview;
+package com.example.myview.imagepreviewdialog;
+import com.example.myview.R;
+import com.example.myview.R.id;
+import com.example.myview.R.layout;
+import com.example.myview.R.style;
+
 import android.animation.ObjectAnimator;  
 import android.animation.ValueAnimator;  
 import android.app.Activity;  
@@ -22,6 +27,7 @@ import android.widget.LinearLayout;
 
 /** 
  * Created by AngusFine on 2016/3/22. 
+ * 高斯模糊背景
  */  
 public class ImagePreviewDialog extends Dialog implements View.OnClickListener{  
     private final int animationTime = 250; //动画时间  
